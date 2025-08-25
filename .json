@@ -1,0 +1,125 @@
+{
+    "info": {
+      "name": "Skipli Backend API",
+      "_postman_id": "c6b5a7f0-2f43-4b1f-9a11-aaaa1111bbbb",
+      "description": "Owner & Employee endpoints",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "variable": [
+      { "key": "baseUrl", "value": "http://localhost:3000" },
+      { "key": "employeeId", "value": "" },
+      { "key": "phoneNumber", "value": "+1234567890" },
+      { "key": "ownerAccessCode", "value": "123456" },
+      { "key": "employeeEmail", "value": "user@example.com" },
+      { "key": "employeeAccessCode", "value": "123456" }
+    ],
+    "item": [
+      {
+        "name": "Owner - Create New Access Code",
+        "request": {
+          "method": "POST",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "url": { "raw": "{{baseUrl}}/createNewAccessCode", "host": ["{{baseUrl}}"], "path": ["createNewAccessCode"] },
+          "body": { "mode": "raw", "raw": "{\n  \"phoneNumber\": \"{{phoneNumber}}\"\n}" }
+        }
+      },
+      {
+        "name": "Owner - Validate Access Code (phone)",
+        "request": {
+          "method": "POST",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "url": { "raw": "{{baseUrl}}/validateAccessCode", "host": ["{{baseUrl}}"], "path": ["validateAccessCode"] },
+          "body": { "mode": "raw", "raw": "{\n  \"phoneNumber\": \"{{phoneNumber}}\",\n  \"accessCode\": \"{{ownerAccessCode}}\"\n}" }
+        }
+      },
+      {
+        "name": "Owner - Create Employee",
+        "request": {
+          "method": "POST",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "url": { "raw": "{{baseUrl}}/createEmployee", "host": ["{{baseUrl}}"], "path": ["createEmployee"] },
+          "body": { "mode": "raw", "raw": "{\n  \"name\": \"Alice\",\n  \"email\": \"alice@example.com\",\n  \"department\": \"Engineering\"\n}" }
+        }
+      },
+      {
+        "name": "Owner - Get Employee",
+        "request": {
+          "method": "POST",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "url": { "raw": "{{baseUrl}}/getEmployee", "host": ["{{baseUrl}}"], "path": ["getEmployee"] },
+          "body": { "mode": "raw", "raw": "{\n  \"employeeId\": \"{{employeeId}}\"\n}" }
+        }
+      },
+      {
+        "name": "Owner - Delete Employee",
+        "request": {
+          "method": "POST",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "url": { "raw": "{{baseUrl}}/deleteEmployee", "host": ["{{baseUrl}}"], "path": ["deleteEmployee"] },
+          "body": { "mode": "raw", "raw": "{\n  \"employeeId\": \"{{employeeId}}\"\n}" }
+        }
+      },
+      {
+        "name": "Employee - Login Email (send code)",
+        "request": {
+          "method": "POST",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "url": { "raw": "{{baseUrl}}/loginEmail", "host": ["{{baseUrl}}"], "path": ["loginEmail"] },
+          "body": { "mode": "raw", "raw": "{\n  \"email\": \"{{employeeEmail}}\"\n}" }
+        }
+      },
+      {
+        "name": "Employee - Validate Access Code (email)",
+        "request": {
+          "method": "POST",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "url": { "raw": "{{baseUrl}}/validateAccessCode", "host": ["{{baseUrl}}"], "path": ["validateAccessCode"] },
+          "body": { "mode": "raw", "raw": "{\n  \"email\": \"{{employeeEmail}}\",\n  \"accessCode\": \"{{employeeAccessCode}}\"\n}" }
+        }
+      },
+      {
+        "name": "Employee - Get All Employees",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "{{baseUrl}}/getAllEmployees?page=1&limit=10&search=&department=",
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "path": [
+              "getAllEmployees"
+            ],
+            "query": [
+              { "key": "page", "value": "1" },
+              { "key": "limit", "value": "10" },
+              { "key": "search", "value": "" },
+              { "key": "department", "value": "" }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Employee - Update Employee",
+        "request": {
+          "method": "PUT",
+          "header": [
+            { "key": "Content-Type", "value": "application/json" }
+          ],
+          "url": {
+            "raw": "{{baseUrl}}/updateEmployee",
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "path": [
+              "updateEmployee"
+            ]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"employeeId\": \"{{employeeId}}\",\n  \"name\": \"Alice Updated\",\n  \"email\": \"alice.updated@example.com\",\n  \"department\": \"Engineering\"\n}"
+          }
+        }
+      }
+    ]
+  }

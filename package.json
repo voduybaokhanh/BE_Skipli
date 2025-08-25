@@ -1,0 +1,38 @@
+{
+  "name": "be_skipli",
+  "version": "1.0.0",
+  "description": "run code app.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voduybaokhanh/BE_Skipli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/voduybaokhanh/BE_Skipli/issues"
+  },
+  "homepage": "https://github.com/voduybaokhanh/BE_Skipli#readme",
+  "dependencies": {
+    "better-sqlite3": "^12.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "mongoose": "^8.6.0",
+    "morgan": "^1.10.1",
+    "nodemailer": "^7.0.5",
+    "uuid": "^11.1.0",
+    "zod": "^4.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
